@@ -48,7 +48,7 @@ def set_bg(image_path):
 set_bg(r"/Users/snigdhatalasila/Documents/ai_bg.png")
 
 class AISymptomChecker:
-    def _init_(self):
+    def __init__(self):
         self.knowledge_base = {
             "fever": {
                 "common_causes": ["flu", "cold", "infection"],
