@@ -50,127 +50,187 @@ set_bg(r"/Users/snigdhatalasila/Documents/ai_bg.png")
 class AISymptomChecker:
     def __init__(self):
         self.knowledge_base = {
-            "fever": {
-                "common_causes": ["flu", "cold", "infection"],
-                "home_remedies": [
-                    "Drink plenty of fluids (water, herbal teas).",
-                    "Take a lukewarm bath.",
-                    "Rest and avoid overexertion."
-                ],
-                "medicines": ["Paracetamol (acetaminophen)", "Ibuprofen"],
-                "recovery_time": "3-5 days"
-            },
-            "cough": {
-                "common_causes": ["cold", "flu", "allergies"],
-                "home_remedies": [
-                    "Gargle with warm salt water.",
-                    "Drink honey and lemon tea.",
-                    "Use a humidifier to keep the air moist."
-                ],
-                "medicines": ["Dextromethorphan (cough suppressant)", "Guaifenesin (expectorant)"],
-                "recovery_time": "7-10 days"
-            },
-            "headache": {
-                "common_causes": ["stress", "migraine", "dehydration"],
-                "home_remedies": [
-                    "Apply a cold or warm compress to your forehead.",
-                    "Practice relaxation techniques (e.g., deep breathing).",
-                    "Stay hydrated and avoid caffeine."
-                ],
-                "medicines": ["Ibuprofen", "Aspirin", "Acetaminophen"],
-                "recovery_time": "A few hours to 1-2 days"
-            },
-            "sore throat": {
-                "common_causes": ["cold", "flu", "strep throat"],
-                "home_remedies": [
-                    "Gargle with warm salt water.",
-                    "Drink warm liquids like tea or broth.",
-                    "Suck on throat lozenges or hard candy."
-                ],
-                "medicines": ["Paracetamol", "Ibuprofen", "Throat numbing sprays"],
-                "recovery_time": "5-7 days"
-            },
-            "nausea": {
-                "common_causes": ["food poisoning", "motion sickness", "pregnancy", "acid reflux"],
-                "home_remedies": [
-                    "Sip on ginger tea or chew ginger candies.",
-                    "Eat small, bland meals (e.g., crackers, toast).",
-                    "Avoid strong smells and fatty foods."
-                ],
-                "medicines": ["Dimenhydrinate (Dramamine)", "Meclizine (Bonine)", "Antacids (for acid reflux)"],
-                "recovery_time": "A few hours to 1-2 days"
-            },
-            "rashes": {
-                "common_causes": ["allergic reaction", "eczema", "contact dermatitis"],
-                "home_remedies": [
-                    "Apply a cold compress to reduce itching.",
-                    "Use over-the-counter hydrocortisone cream.",
-                    "Avoid scratching the affected area."
-                ],
-                "medicines": ["Antihistamines (e.g., Benadryl)", "Hydrocortisone cream", "Calamine lotion"],
-                "recovery_time": "3-7 days"
-            },
-            "eye infection": {
-                "common_causes": ["bacterial infection", "viral infection", "allergies"],
-                "home_remedies": [
-                    "Apply a warm compress to the affected eye.",
-                    "Avoid wearing contact lenses until the infection clears.",
-                    "Keep the eye clean and avoid rubbing it."
-                ],
-                "medicines": ["Antibiotic eye drops", "Antihistamine eye drops", "Artificial tears"],
-                "recovery_time": "5-10 days"
-            },
-            "ear infection": {
-                "common_causes": ["bacterial infection", "viral infection", "fluid buildup"],
-                "home_remedies": [
-                    "Apply a warm compress to the affected ear.",
-                    "Use over-the-counter pain relievers.",
-                    "Keep the ear dry and avoid inserting objects."
-                ],
-                "medicines": ["Antibiotics (e.g., Amoxicillin)", "Pain relievers (e.g., Ibuprofen)", "Ear drops"],
-                "recovery_time": "7-14 days"
-            },
-            "fatigue": {
-                "common_causes": ["lack of sleep", "stress", "anemia"],
-                "home_remedies": [
-                    "Get adequate sleep (7-9 hours per night).",
-                    "Eat a balanced diet rich in vitamins and minerals.",
-                    "Exercise regularly to boost energy levels."
-                ],
-                "medicines": ["Multivitamins", "Iron supplements (if anemic)", "Caffeine (in moderation)"],
-                "recovery_time": "Varies (depends on cause)"
-            },
-            "body pains": {
-                "common_causes": ["overexertion", "flu", "fibromyalgia"],
-                "home_remedies": [
-                    "Apply a warm compress to the affected area.",
-                    "Take a warm bath with Epsom salts.",
-                    "Practice gentle stretching or yoga."
-                ],
-                "medicines": ["Ibuprofen", "Acetaminophen", "Muscle relaxants"],
-                "recovery_time": "2-5 days"
-            },
-            "shortness of breath": {
-                "common_causes": ["asthma", "anxiety", "respiratory infection"],
-                "home_remedies": [
-                    "Practice deep breathing exercises.",
-                    "Avoid triggers like smoke or allergens.",
-                    "Stay hydrated and rest."
-                ],
-                "medicines": ["Inhalers (for asthma)", "Antihistamines (for allergies)", "Bronchodilators"],
-                "recovery_time": "Varies (depends on cause)"
-            },
-            "stomach ache": {
-                "common_causes": ["indigestion", "food poisoning", "irritable bowel syndrome"],
-                "home_remedies": [
-                    "Drink peppermint or ginger tea.",
-                    "Avoid spicy or fatty foods.",
-                    "Apply a warm compress to the stomach."
-                ],
-                "medicines": ["Antacids", "Pepto-Bismol", "Loperamide (for diarrhea)"],
-                "recovery_time": "1-3 days"
-            }
+        "fever": {
+            "common_causes": ["flu", "cold", "infection"],
+            "home_remedies": [
+                "Drink plenty of fluids (water, herbal teas).",
+                "Take a lukewarm bath.",
+                "Rest and avoid overexertion."
+            ],
+            "medicines": ["Paracetamol (acetaminophen)", "Ibuprofen"],
+            "recovery_time": "3-5 days",
+            "related_diseases": ["Influenza", "COVID-19", "Malaria", "Dengue", "Typhoid"],
+            "famous_hospitals": [
+                "Apollo Hospitals, Jubilee Hills",
+                "https://www.google.com/maps/place/Apollo+Hospitals,+Jubilee+Hills"
+            ]
+        },
+        "cough": {
+            "common_causes": ["cold", "flu", "allergies"],
+            "home_remedies": [
+                "Gargle with warm salt water.",
+                "Drink honey and lemon tea.",
+                "Use a humidifier to keep the air moist."
+            ],
+            "medicines": ["Dextromethorphan (cough suppressant)", "Guaifenesin (expectorant)"],
+            "recovery_time": "7-10 days",
+            "related_diseases": ["Bronchitis", "Pneumonia", "Asthma", "Tuberculosis", "COVID-19"],
+            "famous_hospitals": [
+                "Yashoda Hospitals, Somajiguda",
+                "https://www.google.com/maps/place/Yashoda+Hospitals,+Somajiguda"
+            ]
+        },
+        "headache": {
+            "common_causes": ["stress", "migraine", "dehydration"],
+            "home_remedies": [
+                "Apply a cold or warm compress to your forehead.",
+                "Practice relaxation techniques (e.g., deep breathing).",
+                "Stay hydrated and avoid caffeine."
+            ],
+            "medicines": ["Ibuprofen", "Aspirin", "Acetaminophen"],
+            "recovery_time": "A few hours to 1-2 days",
+            "related_diseases": ["Migraine", "Tension Headache", "Cluster Headache", "Sinusitis", "Hypertension"],
+            "famous_hospitals": [
+                "Continental Hospitals, Gachibowli",
+                "https://www.google.com/maps/place/Continental+Hospitals"
+            ]
+        },
+        "sore throat": {
+            "common_causes": ["cold", "flu", "strep throat"],
+            "home_remedies": [
+                "Gargle with warm salt water.",
+                "Drink warm liquids like tea or broth.",
+                "Suck on throat lozenges or hard candy."
+            ],
+            "medicines": ["Paracetamol", "Ibuprofen", "Throat numbing sprays"],
+            "recovery_time": "5-7 days",
+            "related_diseases": ["Strep Throat", "Tonsillitis", "Pharyngitis", "COVID-19", "Mononucleosis"],
+            "famous_hospitals": [
+                "KIMS Hospitals, Secunderabad",
+                "https://www.google.com/maps/place/KIMS+Hospitals,+Secunderabad"
+            ]
+        },
+        "nausea": {
+            "common_causes": ["food poisoning", "motion sickness", "pregnancy", "acid reflux"],
+            "home_remedies": [
+                "Sip on ginger tea or chew ginger candies.",
+                "Eat small, bland meals (e.g., crackers, toast).",
+                "Avoid strong smells and fatty foods."
+            ],
+            "medicines": ["Dimenhydrinate (Dramamine)", "Meclizine (Bonine)", "Antacids (for acid reflux)"],
+            "recovery_time": "A few hours to 1-2 days",
+            "related_diseases": ["Gastroenteritis", "Pregnancy", "Migraine", "Food Poisoning", "Acid Reflux"],
+            "famous_hospitals": [
+                "AIG Hospitals, Gachibowli",
+                "https://www.google.com/maps/place/AIG+Hospitals"
+            ]
+        },
+        "rashes": {
+            "common_causes": ["allergic reaction", "eczema", "contact dermatitis"],
+            "home_remedies": [
+                "Apply a cold compress to reduce itching.",
+                "Use over-the-counter hydrocortisone cream.",
+                "Avoid scratching the affected area."
+            ],
+            "medicines": ["Antihistamines (e.g., Benadryl)", "Hydrocortisone cream", "Calamine lotion"],
+            "recovery_time": "3-7 days",
+            "related_diseases": ["Eczema", "Psoriasis", "Allergic Reaction", "Measles", "Chickenpox"],
+            "famous_hospitals": [
+                "Rainbow Children's Hospital, Banjara Hills",
+                "https://www.google.com/maps/place/Rainbow+Children's+Hospital"
+            ]
+        },
+        "eye infection": {
+            "common_causes": ["bacterial infection", "viral infection", "allergies"],
+            "home_remedies": [
+                "Apply a warm compress to the affected eye.",
+                "Avoid wearing contact lenses until the infection clears.",
+                "Keep the eye clean and avoid rubbing it."
+            ],
+            "medicines": ["Antibiotic eye drops", "Antihistamine eye drops", "Artificial tears"],
+            "recovery_time": "5-10 days",
+            "related_diseases": ["Conjunctivitis", "Blepharitis", "Keratitis", "Stye", "Uveitis"],
+            "famous_hospitals": [
+                "LV Prasad Eye Institute, Banjara Hills",
+                "https://www.google.com/maps/place/LV+Prasad+Eye+Institute"
+            ]
+        },
+        "ear infection": {
+            "common_causes": ["bacterial infection", "viral infection", "fluid buildup"],
+            "home_remedies": [
+                "Apply a warm compress to the affected ear.",
+                "Use over-the-counter pain relievers.",
+                "Keep the ear dry and avoid inserting objects."
+            ],
+            "medicines": ["Antibiotics (e.g., Amoxicillin)", "Pain relievers (e.g., Ibuprofen)", "Ear drops"],
+            "recovery_time": "7-14 days",
+            "related_diseases": ["Otitis Media", "Otitis Externa", "Swimmer's Ear", "Mastoiditis", "Labyrinthitis"],
+            "famous_hospitals": [
+                "Global Hospitals, Lakdi-ka-pul",
+                "https://www.google.com/maps/place/Global+Hospitals,+Lakdi-ka-pul"
+            ]
+        },
+        "fatigue": {
+            "common_causes": ["lack of sleep", "stress", "anemia"],
+            "home_remedies": [
+                "Get adequate sleep (7-9 hours per night).",
+                "Eat a balanced diet rich in vitamins and minerals.",
+                "Exercise regularly to boost energy levels."
+            ],
+            "medicines": ["Multivitamins", "Iron supplements (if anemic)", "Caffeine (in moderation)"],
+            "recovery_time": "Varies (depends on cause)",
+            "related_diseases": ["Chronic Fatigue Syndrome", "Anemia", "Hypothyroidism", "Depression", "Sleep Apnea"],
+            "famous_hospitals": [
+                "Care Hospitals, Banjara Hills",
+                "https://www.google.com/maps/place/Care+Hospitals,+Banjara+Hills"
+            ]
+        },
+        "body pains": {
+            "common_causes": ["overexertion", "flu", "fibromyalgia"],
+            "home_remedies": [
+                "Apply a warm compress to the affected area.",
+                "Take a warm bath with Epsom salts.",
+                "Practice gentle stretching or yoga."
+            ],
+            "medicines": ["Ibuprofen", "Acetaminophen", "Muscle relaxants"],
+            "recovery_time": "2-5 days",
+            "related_diseases": ["Fibromyalgia", "Arthritis", "Lupus", "Influenza", "Chronic Fatigue Syndrome"],
+            "famous_hospitals": [
+                "Omega Hospitals, Gachibowli",
+                "https://www.google.com/maps/place/Omega+Hospitals"
+            ]
+        },
+        "shortness of breath": {
+            "common_causes": ["asthma", "anxiety", "respiratory infection"],
+            "home_remedies": [
+                "Practice deep breathing exercises.",
+                "Avoid triggers like smoke or allergens.",
+                "Stay hydrated and rest."
+            ],
+            "medicines": ["Inhalers (for asthma)", "Antihistamines (for allergies)", "Bronchodilators"],
+            "recovery_time": "Varies (depends on cause)",
+            "related_diseases": ["Asthma", "COPD", "Pneumonia", "Heart Failure", "Anxiety Disorders"],
+            "famous_hospitals": [
+                "Star Hospitals, Banjara Hills",
+                "https://www.google.com/maps/place/Star+Hospitals"
+            ]
+        },
+        "stomach ache": {
+            "common_causes": ["indigestion", "food poisoning", "irritable bowel syndrome"],
+            "home_remedies": [
+                "Drink peppermint or ginger tea.",
+                "Avoid spicy or fatty foods.",
+                "Apply a warm compress to the stomach."
+            ],
+            "medicines": ["Antacids", "Pepto-Bismol", "Loperamide (for diarrhea)"],
+            "recovery_time": "1-3 days",
+            "related_diseases": ["Gastritis", "Irritable Bowel Syndrome", "Appendicitis", "Ulcerative Colitis", "Food Poisoning"],
+            "famous_hospitals": [
+                "AIG Hospitals, Gachibowli",
+                "https://www.google.com/maps/place/AIG+Hospitals"
+            ]
         }
+    }
 
         self.symptoms = list(self.knowledge_base.keys())
         self.vectorizer = TfidfVectorizer(stop_words=stopwords.words("english"))
@@ -265,6 +325,14 @@ class AISymptomChecker:
                 response += f"""
                 </ul>
                 <div style="font-size: 18px; font-weight: bold;">Estimated Recovery Time: {result['recovery_time']}</div>
+                <br>
+                <div style="font-size: 18px; font-weight: bold;">Related Diseases:</div>
+                <div style="font-size: 16px;">{', '.join(result['related_diseases'])}</div>
+                <br>
+                <div style="font-size: 18px; font-weight: bold;">Famous Hospital in Hyderabad:</div>
+                <div style="font-size: 16px;">
+                    <a href="{result['famous_hospitals'][1]}" target="_blank">{result['famous_hospitals'][0]}</a>
+                </div>
                 """
 
                 # Add empathetic response based on sentiment
@@ -406,9 +474,9 @@ def personalized_suggestions():
         if search_query:
             filtered_blogs = [blog for blog in blogs if search_query.lower() in blog["title"].lower() or search_query.lower() in blog["content"].lower()]
             if filtered_blogs:
-                st.write(f"*Search Results for '{search_query}':*")
+                st.write(f"Search Results for '{search_query}':")
                 for blog in filtered_blogs:
-                    st.write(f"- *{blog['title']}* by {blog['author']}")
+                    st.write(f"- {blog['title']} by {blog['author']}")
             else:
                 st.warning("No blogs found matching your search.")
 
@@ -424,15 +492,15 @@ def personalized_suggestions():
             ]
 
         # Display Community Posts
-        st.write("*Recent Posts:*")
+        st.write("Recent Posts:")
         for post in st.session_state.community_posts:
             with st.expander(f"{post['user']}: {post['post']}"):
-                st.write("*Replies:*")
+                st.write("Replies:")
                 for reply in post["replies"]:
                     st.write(f"- {reply}")
 
         # Add a New Post
-        st.write("*Create a New Post:*")
+        st.write("Create a New Post:")
         new_post = st.text_area("Share your experience or ask a question:")
         if st.button("Post"):
             if new_post.strip():
@@ -442,7 +510,7 @@ def personalized_suggestions():
                 st.warning("Please write something to post.")
 
         # Reply to a Post
-        st.write("*Reply to a Post:*")
+        st.write("Reply to a Post:")
         selected_post = st.selectbox("Select a post to reply to:", [post["post"] for post in st.session_state.community_posts])
         reply_text = st.text_area("Write your reply:")
         if st.button("Reply"):
